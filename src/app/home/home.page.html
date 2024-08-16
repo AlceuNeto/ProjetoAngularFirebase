@@ -3,7 +3,7 @@
 
     <!-- MENU SUPERIOR SEGMENT -->
 
-    <ion-col size="12" size-lg="6">
+    <ion-col size="12" size-lg="5">
 
         <ion-segment value="usuarios" (ionChange)="trocar($event)">
             <ion-segment-button value="usuarios">
@@ -23,27 +23,39 @@
     <!-- VISUALIZAÇÃO USUÁRIOS -->
     <ion-row class="ion-justify-content-center" *ngIf="this.segment == 'usuarios'">
 
-        <ion-col size="12" size-lg="8">
-            <ion-card>
-            <ion-item *ngFor="let usuario of this.usuario">
-                <ion-label>
-                    <h1>Nome: {{usuario.nome}}</h1>
-                    <h3>Idade: {{usuario.idade}}</h3>
-                    <h3>Gênero: {{usuario.genero}}</h3>
-                </ion-label>
+        <ion-col size="12" size-lg="5">
+            <ion-card color="primary">
+            
+            <ng-container *ngFor = "let usuarios of this.usuarios">
+                <ion-item color="tertiary">
+                    <ion-label>
+                        <h1>Nome: {{usuarios.nome}}</h1>
+                        <h3>Idade: {{usuarios.idade}}</h3>
+                        <h3>Gênero: {{usuarios.genero}}</h3>
+                    </ion-label>
+                    </ion-item>
                 <ion-accordion-group>
-                    <ion-accordion value="{{rotina.dia}}" *ngFor="let rotina of usuario.rotinas">
-                        <ion-item slot="header" color="sucess" >
+                    <ion-accordion value="{{rotina.dia}}" *ngFor="let rotina of usuarios.rotinas">
+                        <ion-item  color="primary" slot="header">
                             <ion-label>
                                 {{rotina.dia}}
                             </ion-label>
                         </ion-item>
     
-                        <div class="ion-padding" slot="content">TESTE</div>
+                        <div class="ion-padding" slot="content">
+                            <ng-container *ngFor="let treino of rotina.treinos" color="primary">
+                                <ion-item color="secondary-rgb">
+                                    <ion-label>
+                                        {{treino}}
+                                    </ion-label>
+                                </ion-item>
+                            </ng-container>
+                        </div>
                     </ion-accordion>
     
                 </ion-accordion-group>
-            </ion-item>
+                
+            </ng-container>
         </ion-card>
         </ion-col>
 
@@ -51,7 +63,7 @@
     <!-- VISUALIZAÇÃO TREINOS -->
     <ion-row class="ion-justify-content-center" *ngIf="this.segment == 'treinos'">
         <ion-col size="12" size-lg="8">
-            <ion-label>
+            <ion-label color="success">
                 usuario
             </ion-label>
 
