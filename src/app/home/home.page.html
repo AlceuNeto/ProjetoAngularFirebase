@@ -43,7 +43,7 @@
                         </ion-item>
     
                         <div class="ion-padding" slot="content">
-                            <ng-container *ngFor="let treino of rotina.treinos" color="primary">
+                            <ng-container *ngFor="let treino of  this.treinos" color="primary">
                                 <ion-item color="secondary-rgb">
                                     <ion-label>
                                         {{treino}}
@@ -62,15 +62,47 @@
     </ion-row>
     <!-- VISUALIZAÇÃO TREINOS -->
     <ion-row class="ion-justify-content-center" *ngIf="this.segment == 'treinos'">
-        <ion-col size="12" size-lg="8">
-            <ion-label color="success">
-                usuario
-            </ion-label>
 
+        <ion-col size="12" size-lg="5">
+            <ion-card color="primary">
+            
+            
+   
+                <ion-accordion-group >
+                    <ng-container *ngFor="let treino of this.treinos">
+                        <ion-accordion value="{{treino.nome}}" >
+                            <ion-item  color="primary" slot="header">
+                                <ion-label>
+                                    
+                                    {{treino.nome}}
+                                </ion-label>
+                            </ion-item>
+        
+                            <div class="ion-padding" slot="content">
+                                
+                                <ion-item color="secondary-rgb">
+                                    <ion-label>
+                                        <ion-card>
+                                            <img src="{{treino.foto}}" alt="">
+                                        </ion-card>
+                                        <ion-card-header>
+                                            <ion-card-title> <h1>Nome: {{treino.nome}}</h1></ion-card-title>
+                                            <ion-card-subtitle><h3>Séries de Repetição: {{treino.series}}</h3></ion-card-subtitle>
+                                          </ion-card-header>
+                                       
+                                        
+                                        
+                                    </ion-label>
+                                </ion-item>
+                            </div>
+                            
+                        </ion-accordion>
+                    </ng-container>
+                </ion-accordion-group>
+                
+            
+        </ion-card>
         </ion-col>
 
     </ion-row>
-
-
-
 </ion-content>
