@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+<ng-container *ngFor = "let pais of this.paises">
+
+  <ion-row>
+    <ion-col lg="12">
+      <ion-item>
+      <img src="{{pais.flags.png}}" alt="">
+      <h1>Nome Oficial: {{pais.name.official}}</h1>
+      <h1>Nome Oficial: {{pais.name.common}}</h1>
+    </ion-item>
+    </ion-col>
+    
+  </ion-row>
+<ion-row>
+
+</ion-row>
+
+<ion-row>
+  <ion-col lg="12">
+    <h1>Capital: {{pais.capital}}</h1>
+    
+    <h1>População: {{ pais.population }}</h1>
+    <h2>Região: {{pais.region}}</h2>
+    
+    <h2></h2>
+    
+  </ion-col>
+</ion-row>
+
+</ng-container>
+</ion-content>
