@@ -1,31 +1,102 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true"  class="ion-text-center">
 <ng-container *ngFor = "let pais of this.paises">
 
   <ion-row>
-    <ion-col lg="12">
+    <ion-col  size-lg="12">
       <ion-item>
+        <ion-col size="12" size-lg="4">
       <img src="{{pais.flags.png}}" alt="">
+    </ion-col>
+    <ion-col size="12" size-lg="8">
+      <div class="ion-text-wrap">
+        <ion-col size="12">
+        <ion-label>
+        <h1>Nome: {{pais.name.common}}</h1>
       <h1>Nome Oficial: {{pais.name.official}}</h1>
-      <h1>Nome Oficial: {{pais.name.common}}</h1>
+
+    </ion-label>
+  </ion-col>
+  </div>
+      </ion-col>
+
+    
     </ion-item>
     </ion-col>
+
     
   </ion-row>
 <ion-row>
 
 </ion-row>
 
-<ion-row>
-  <ion-col lg="12">
+<ion-row class="ion-text-center">
+  
+  <ion-col size-lg="12">
     <h1>Capital: {{pais.capital}}</h1>
     
     <h1>População: {{ pais.population }}</h1>
+   
+    <h2>Área total: {{pais.area}} KM²</h2>
     <h2>Região: {{pais.region}}</h2>
     
-    <h2></h2>
+    <h2>Sub-Região:{{pais.subregion}} </h2>
+    <ng-container *ngFor= "let fuso of pais.timezones">
+      <ion-row>
+        <h1>TIMEZONES:</h1>
+        <ion-col lg="12">
+      
+      <h3>{{fuso}} </h3>
+    </ion-col>
+   </ion-row>
+   
+   </ng-container>
+
+   </ion-col>
+
+   <ng-container *ngIf="pais.independent">
+    <h2>Este país é Independente! </h2>
+   </ng-container>
+   <ng-container *ngIf="!pais.independent">
+    <h2>Este país não é independente! </h2>
+   </ng-container>
+   </ion-row>
+
     
-  </ion-col>
-</ion-row>
+
+
+
+  <ion-row>
+    <ion-col size-lg="12">
+      
+      <ion-row class="ion-text-wrap">
+        
+        <ion-col>
+          <h1>Fronteiras:</h1>
+      <ng-container *ngFor="let bor of pais.borders">
+        <ion-row class="ion-text-wrap">
+        
+          <ion-col>
+            
+            <ion-item lines="none" class="mouse-hover" (click)="verDetalhes(bor)">
+              <ion-label >
+                <ion-item>
+                  <ion-label class="ion-text-center">
+         {{bor}}
+        </ion-label>
+        </ion-item>
+        </ion-label>
+        </ion-item>
+      </ion-col>
+      </ion-row>
+      </ng-container>
+    </ion-col>
+    </ion-row>
+    </ion-col>
+    
+  </ion-row>
 
 </ng-container>
+
+
+
 </ion-content>

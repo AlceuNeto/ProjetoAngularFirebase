@@ -9,7 +9,9 @@ export class VerDetalhesPage {
 
 paises:any;
 
-  constructor() { 
+  constructor(
+    
+  ) { 
     console.log(history.state.codigo)
     this.getPaisDetalhes();
   }
@@ -28,7 +30,26 @@ paises:any;
       console.log('conseguimos caraio')
     })
 
+
+    
   }
 
+  verDetalhes(bor:any){
+    fetch(`https://restcountries.com/v3.1/alpha/${bor}`)
+    .then(dados => dados.json ())
+    .then(dados => {
+      console.log(dados);
+      this.paises = dados;
+    })
+    .catch(_ => {
+      console.log(_);
+    })
+    .finally(()=> {
+      console.log('conseguimos caraio')
+    })
 
+  }
+
+  
 }
+
