@@ -1,0 +1,26 @@
+.image-container {
+    display: flex; 
+    flex-direction: column;
+    margin-left: 40px;
+  }
+  
+  .image-container img {
+    display: block;   
+    margin-bottom: 10px; 
+   width:255px;
+    height: 200px;     
+  }
+  
+
+  .treinas{
+    font-size: 5em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: red;
+  }
+
+  .exercicios{
+    display: flex;
+    justify-content: space-between;
+  }
