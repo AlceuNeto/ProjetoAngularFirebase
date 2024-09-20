@@ -6,6 +6,9 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { HeaderModule } from '../shared/header/header.module';
+import { BannerModule } from '../banner/banner.module';
+import { TreinosModule } from '../treinos/treinos.module';
+import { FooterModule } from '../footer/footer.module';
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import { HeaderModule } from '../shared/header/header.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    BannerModule,
+    TreinosModule,
+    FooterModule
   ],
   declarations: [HomePage]
 })
