@@ -10,6 +10,35 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  aluno:any = {
+    nome: null,
+    email: null
 
-  constructor(){ }
+  }
+  alunos: any = [
+
+  ]
+
+
+  constructor(
+    public crudService: CrudService
+    
+
+  ){ 
+    this.getAlunos();
+  }
+  cadastrar(){
+    this.crudService.insert(this.aluno,'aluno');
+    this.getAlunos();
+    
+
+    }
+    getAlunos(){
+      this.crudService.fetchAll('aluno')
+      .then(response => {
+        console.log(response);
+        this.alunos = response;
+      })
+   
+  }
 }

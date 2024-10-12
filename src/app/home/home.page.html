@@ -1,5 +1,29 @@
 <ion-content [fullscreen]="true">
 
-  
+  <ion-row>
+    <ion-col>
+   
+        <ion-input label="Nome" [(ngModel)] = "this.aluno.nome"></ion-input>
+        <ion-input label="Email" [(ngModel)] = "this.aluno.email"></ion-input>
+        <ion-button (click)="cadastrar()">Cadastrar</ion-button>
+
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+        <ng-container *ngFor="let aluno of this.alunos">
+        <ion-item>
+            <ion-label>
+                <ion-item>
+                {{aluno.nome}}
+                {{aluno.email}}
+            </ion-item>
+            </ion-label>
+        </ion-item>
+    </ng-container>
+    </ion-col>
+  </ion-row>
 
 </ion-content>
